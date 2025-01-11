@@ -1,5 +1,3 @@
-# Interview-Question-Creator-Project
-
 # FastAPI PDF Analysis and Question-Answer Generator
 
 ## Project Description
@@ -32,16 +30,3 @@ Before you can run this project, you'll need to install several dependencies:
 You can install these with pip:
 ```bash
 pip install fastapi uvicorn aiofiles jinja2 langchain
-
-### How to run?
-
-1. Create an environment
-```
-conda create -n interview python=3.10 -y
-conda activate interview
-```
-
-2. install requirements
-```bash
-pip install -r requirements.txt
-```
