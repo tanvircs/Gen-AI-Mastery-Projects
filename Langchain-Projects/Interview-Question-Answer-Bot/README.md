@@ -30,3 +30,44 @@ Before you can run this project, you'll need to install several dependencies:
 You can install these with pip:
 ```bash
 pip install fastapi uvicorn aiofiles jinja2 langchain
+
+# Application Setup Guide
+
+## How to Run
+
+This guide walks you through setting up and running the application. Follow the steps below to get everything up and running smoothly.
+
+### Create an environment
+
+1. **Create a Conda environment:** Use the following commands to create a Conda environment named `interview` with Python 3.10. This ensures that all dependencies are managed correctly.
+
+    ```bash
+    conda create -n interview python=3.10 -y
+    conda activate interview
+    ```
+
+### Install requirements
+
+2. **Install required packages:** After setting up and activating the environment, install the necessary packages listed in the `requirements.txt` file. This file contains all the Python libraries that your application needs to run.
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Run the application
+
+3. **Start the server:** Once the environment is set up and all packages are installed, you can start the application server using the following command. This command tells Uvicorn, an ASGI server, to run your FastAPI application.
+
+    ```bash
+    uvicorn app:app --host 0.0.0.0 --port 8080 --reload
+    ```
+
+    - The `--reload` flag enables auto-reloading so the server will restart whenever changes are made to the code.
+    - The application will be available at `http://localhost:8080`. Navigate to this URL in your web browser to interact with the application.
+
+## Additional Information
+
+This README provides the basic steps to get your application running. For more detailed information about the project's functionality and its components, refer to the project's documentation or other sections of the README that might include usage examples, development guidelines, and contributions.
+
+Thank you for setting up and using our application!
+
