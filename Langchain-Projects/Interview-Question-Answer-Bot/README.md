@@ -30,7 +30,7 @@ Before you can run this project, you'll need to install several dependencies:
 You can install these with pip:
 ```bash
 pip install fastapi uvicorn aiofiles jinja2 langchain
-
+```
 # Application Setup Guide
 
 ## How to Run
