@@ -150,8 +150,8 @@ results = vectorstore.similarity_search(query, top_k=5)
 ```
 
 ## Requirements
-- [Python 3.7 or higher]
-- [API keys for OpenAI, Pinecone, and Weaviate.]
+- Python 3.7 or higher
+- API keys for OpenAI, Pinecone, and Weaviate.
 
 
 ## Usage
@@ -161,6 +161,6 @@ Run the provided code cells step by step for each vector database to see the res
 
 ## Acknowledgements
 Special thanks to:
-- [LangChain for providing robust tools for embeddings and vector databases.]
-- [ChromaDB, Pinecone, and Weaviate for seamless vector database integrations.]
-- [OpenAI for the powerful GPT models.]
+- LangChain for providing robust tools for embeddings and vector databases.
+- ChromaDB, Pinecone, and Weaviate for seamless vector database integrations.
+- OpenAI for the powerful GPT models.
