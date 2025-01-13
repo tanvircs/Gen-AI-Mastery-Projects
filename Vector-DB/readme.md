@@ -48,3 +48,26 @@ loader = DirectoryLoader("/path/to/text/files", glob="./*.txt")
 documents = loader.load()
 ```
 
+2. Split Documents: Split the documents into smaller chunks for efficient embedding.
+```bash
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+text_chunks = text_splitter.split_documents(documents)
+```
+
+3. Create a Vector Database: Use ChromaDB to create and persist a database of embeddings.
+```bash
+from langchain.vectorstores import Chroma
+vectordb = Chroma.from_documents(
+    embedding=OpenAIEmbeddings(),
+    documents=text_chunks,
+    persist_directory="db"
+)
+```
+
+4. Query and Retrieve Results: Retrieve documents using natural language queries.
+```bash
+retriever = vectordb.as_retriever()
+docs = retriever.get_relevant_documents("What is Google AI?")
+```
+
