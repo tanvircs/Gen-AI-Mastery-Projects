@@ -71,3 +71,96 @@ retriever = vectordb.as_retriever()
 docs = retriever.get_relevant_documents("What is Google AI?")
 ```
 
+## Pinecone Workflow
+### Steps:
+1. Initialize Pinecone:
+
+```bash
+from pinecone import Pinecone, ServerlessSpec
+pc = Pinecone(api_key="your-pinecone-api-key")
+index_name = "example-index"
+pc.create_index(
+    name=index_name,
+    dimension=1536,
+    metric='cosine',
+    spec=ServerlessSpec(cloud='aws', region='us-east-1')
+)
+index = pc.Index(index_name)
+```
+
+2. Upload Embeddings: Embed document chunks and upload vectors to Pinecone.
+
+```bash
+embedded_texts = [OpenAIEmbeddings().embed_query(chunk.page_content) for chunk in text_chunks]
+index.upsert(vectors=[(str(i), vec) for i, vec in enumerate(embedded_texts)])
+```
+
+3. Query the Index: Retrieve similar documents from Pinecone.
+
+```bash
+query_vector = OpenAIEmbeddings().embed_query("YOLOv7 outperforms which models?")
+response = index.query(vector=query_vector, top_k=5)
+```
+
+## Weaviate Workflow
+### Steps:
+1. Initialize Weaviate:
+
+```bash
+from weaviate.client import Client
+from weaviate.auth import AuthApiKey
+
+auth_config = AuthApiKey(api_key="your-weaviate-api-key")
+
+client = Client(
+    url="https://your-weaviate-instance",
+    auth_client_secret=auth_config,
+    additional_headers={"X-OpenAI-Api-Key": "your-openai-api-key"}
+)
+```
+
+2. Define Schema: Set up the schema for storing document vectors.
+
+```bash
+schema = {
+    "classes": [
+        {
+            "class": "Document",
+            "description": "Documents for retrieval",
+            "properties": [{"dataType": ["text"], "name": "content"}]
+        }
+    ]
+}
+client.schema.create(schema)
+```
+
+3. Upload Text Chunks: Add document embeddings to Weaviate.
+
+```bash
+from langchain.vectorstores import Weaviate
+vectorstore = Weaviate(client, "Document", "content")
+vectorstore.add_texts([chunk.page_content for chunk in text_chunks])
+```
+
+4. Perform Similarity Search: Retrieve documents based on query similarity.
+
+```bash
+query = "What is YOLO?"
+results = vectorstore.similarity_search(query, top_k=5)
+```
+
+## Requirements
+- [Python 3.7 or higher]
+- [API keys for OpenAI, Pinecone, and Weaviate.]
+
+
+## Usage
+Replace placeholders like your-openai-api-key, your-pinecone-api-key, and your-weaviate-api-key with valid keys.
+
+Run the provided code cells step by step for each vector database to see the respective functionality.
+
+## Acknowledgements
+Special thanks to:
+- [LangChain for providing robust tools for embeddings and vector databases.]
+- [ChromaDB, Pinecone, and Weaviate for seamless vector database integrations.]
+- [OpenAI for the powerful GPT models.]
