@@ -36,3 +36,13 @@ pip install openai langchain tiktoken chromadb==0.4.15
 pip install pinecone-client weaviate-client>=3.26.7,<4.0.0
 pip install unstructured "unstructured[pdf]"
 pip install langchain_community
+
+## ChromaDB Workflow
+### Steps:
+1. Load Documents: Download and unzip a collection of text files to process.
+
+```bash
+from langchain.document_loaders import DirectoryLoader
+loader = DirectoryLoader("/path/to/text/files", glob="./*.txt")
+documents = loader.load()
+
