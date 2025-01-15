@@ -121,5 +121,8 @@ print(result[0]['generated_text'])
 - Meta for LLaMA 2.
 - The QLoRA paper for inspiring efficient training methods.
 
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
 ## Created with ❤️ by Tanvir Ahmed.
 This README file provides a clear and comprehensive guide for using and understanding your fine-tuning application. Replace placeholders (e.g., `tanvir007v`) with actual values and add a LICENSE file to complete the project.
