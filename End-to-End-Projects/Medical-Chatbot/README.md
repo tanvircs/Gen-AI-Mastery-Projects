@@ -75,3 +75,6 @@ python store_index.py
 ```bash
 python app.py
 ```
+
+## Created with ❤️ by Tanvir Ahmed.
+This README file provides a clear and comprehensive guide for using and understanding your Medical Chatbot application. 
