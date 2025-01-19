@@ -108,5 +108,5 @@ Let me know if you need help refining or customizing this further!
 
 ## Created with ❤️ by Tanvir Ahmed.
    ```bash
-   This `README.md` provides a comprehensive overview of your project, including the purpose of each application, installation instructions, and usage examples. Replace placeholders like repository URLs and API keys with actual values to complete the setup.
+   This `README.md` provides a comprehensive overview of source code analysis from github using llm model. Replace placeholders like repository URLs and API keys with actual values to complete the setup.
    ```
