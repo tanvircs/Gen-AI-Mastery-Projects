@@ -103,6 +103,5 @@ Special thanks to:
 ## ⭐ Show Your Support
 If you find this project useful, please consider giving it a ⭐ on GitHub!
 ```bash
-`tanvirahmed.cs.93@gmail.com.com` and `tanvircs`
 Let me know if you need help refining or customizing this further!
 ```
