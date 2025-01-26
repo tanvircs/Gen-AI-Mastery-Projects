@@ -28,7 +28,7 @@ This application processes a research paper, *"Sentiment Analysis of COVID-19"*,
 
 ---
 
-### 2. **RAG Application for ARi Website Bot**
+### 2. **RAG Application for any Website Bot**
 
 #### Overview
 This application creates a chatbot for answering questions related to the content of specific websites. It is designed for ARi and other personal/professional sites.
